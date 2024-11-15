@@ -23,7 +23,7 @@ export default function Index({ posts, globalData }) {
               key={post.id}
               className="md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-b-0 last:border-b hover:border-b hovered-sibling:border-t-0"
             >
-              <Link
+              <Link legacyBehavior
                 as={`/posts/${post.id}`}
                 href={`/posts/${post.id}`}
               >
@@ -62,7 +62,6 @@ export default function Index({ posts, globalData }) {
 export async function getServerSideProps() {
   const posts = await getPosts();
   const globalData = getGlobalData()
-
 
   return { props: { posts, globalData } };
 }
